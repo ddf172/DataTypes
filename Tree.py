@@ -108,3 +108,5 @@ class BinarySearchTree:
                 return res
             track.pop()
 
+    def remove_node(self, track, node=None):
+        pass
