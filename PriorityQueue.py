@@ -46,5 +46,5 @@ class ListMinHeap:
     def __len__(self):
         return self.size()
 
-    def show(self):
-        print(self.__heap)
+    def to_list(self):
+        return self.__heap

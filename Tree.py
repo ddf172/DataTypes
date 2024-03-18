@@ -1,6 +1,6 @@
 class BNode:
 
-    def __init__(self, value=None, left = None, right=None):
+    def __init__(self, value=None, left=None, right=None):
         self.value = value
         self.right = right
         self.left = left

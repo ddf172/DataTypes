@@ -138,7 +138,7 @@ class CircularQueue(LinkedQueue):
         if self.is_empty() or self.head == self.tail:
             return
         self.head = self.head.next
-        self.tail = self.tail
+        self.tail = self.head
 
     def display(self):
         if self.is_empty():
