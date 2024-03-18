@@ -18,7 +18,7 @@ class ListMinHeap:
         self.__heapify_down(0)
         return value
 
-    def heapify_down(self, index):
+    def __heapify_down(self, index):
         left = 2 * index + 1
         right = 2 * index + 2
         minimum = index
@@ -30,7 +30,7 @@ class ListMinHeap:
             self.__heap[minimum], self.__heap[index] = self.__heap[index], self.__heap[minimum]
             self.__heapify_down(minimum)
 
-    def heapify_up(self, index):
+    def __heapify_up(self, index):
         parent = (index - 1) // 2
         while index > 0 and self.__heap[index] < self.__heap[parent]:
             self.__heap[index], self.__heap[parent] = self.__heap[parent], self.__heap[index]
