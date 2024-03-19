@@ -38,8 +38,12 @@ class BinarySearchTree:
                     self.add(value, node.left)
 
     def print_tree(self, node=None):
-        if node is None:
+        if self.is_empty():
+            return
+
+        if node == None:
             node = self.root
+
         if node.left:
             self.print_tree(node.left)
         print(node.value)
@@ -49,6 +53,9 @@ class BinarySearchTree:
     def is_value_in(self, value, node=None):
         if node is None:
             node = self.root
+
+        if node is None:
+            return None
 
         if value == node.value:
             return True
@@ -67,11 +74,15 @@ class BinarySearchTree:
     def get_track_to_value(self, value, track=None, node=None):
         if node is None:
             node = self.root
+
+        if node is None:
+            return None
+
         if track is None:
             track = []
 
         if value == node.value:
-            return track
+            return track if track else None
 
         if value > node.value:
             if node.right:
@@ -89,6 +100,10 @@ class BinarySearchTree:
     def get_track_to_node(self, node_id, track=None, node=None):
         if node is None:
             node = self.root
+
+        if node is None:
+            return None
+
         if track is None:
             track = []
 
@@ -108,5 +123,27 @@ class BinarySearchTree:
                 return res
             track.pop()
 
-    def remove_node(self, track, node=None):
-        pass
+    def remove_node(self, value):
+        self.root = self._remove_node(value, self.root)
+
+    def _remove_node(self, value, node=0):
+        if node is None:
+            return None
+
+        if value < node.value:
+            node.left = self._remove_node(value, node.left)
+        elif value > node.value:
+            node.right = self._remove_node(value, node.right)
+        else:
+            if not node.left:
+                return node.right
+
+            elif not node.right:
+                return node.left
+
+            curr = node.right
+            while curr.left:
+                curr = curr.left
+            node.value = curr.value
+            node.right = self._remove_node(curr.value, node.right)
+        return node
