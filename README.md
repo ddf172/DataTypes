@@ -1,7 +1,8 @@
 Basic Data Structures implementation for learning purposes.
 Currently:
-- Linked List
+- Singly Linked List
 - Circullar Linked List
-- Queue
+- Priority Queue
+- Prior
 - Stack
-- Heap
+- Tree
